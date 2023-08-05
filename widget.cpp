@@ -23,9 +23,9 @@ Widget::Widget(QWidget *parent)
     GeneratorInterface* key_generator = new KeySequenceGenerator(str_initialize_keys);
     KeySequence* key_sequence = new KeySequence(key_generator);
 
-    step_context_ = new StepController(this, key_sequence, Qt::green);
-    connect(step_context_, SIGNAL(ResetSignal()),
-            this, SLOT(onResetContext()));
+//    step_context_ = new StepController(this, key_sequence, Qt::green);
+//    connect(step_context_, SIGNAL(ResetSignal()),
+//            this, SLOT(onResetContext()));
 
     QGridLayout *layout = new QGridLayout;
 
@@ -59,7 +59,7 @@ void Widget::GenerateButtons(QGridLayout* layout, const int count) {
     int seed = QRandomGenerator::global()->bounded(count);
     for (int i = 0; i < count; i++) {
         LedButton* button = new LedButton(this, seed);
-        connect(button, SIGNAL(clicked()), step_context_, SLOT(onLedButtonClicked()));
+        //connect(button, SIGNAL(clicked()), step_context_, SLOT(onLedButtonClicked()));
 
         layout->addWidget(button, 1, i);
         led_buttons_.push_back(button);
@@ -79,7 +79,7 @@ void Widget::GenerateLedIndicators(QGridLayout *layout, const int count) {
         }
 
         if (i == count-1) {
-            QObject::connect(step_context_, SIGNAL(UpdateColor(QColor,int)), led, SLOT(onUpdateColor(QColor,int)));
+            //QObject::connect(step_context_, SIGNAL(UpdateColor(QColor,int)), led, SLOT(onUpdateColor(QColor,int)));
         }
 
         layout->addWidget(led, 0, i);

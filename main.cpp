@@ -1,4 +1,4 @@
-#include "widget.h"
+#include "ledgame.h"
 
 #include <QApplication>
 
@@ -11,12 +11,22 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     ::testing::InitGoogleTest(&argc, argv);
-    Widget w;
-    w.show();
 
-    if (RUN_ALL_TESTS() == 1) {
-        return 1;
+    LedGame* ld = LedGame::NewInstance();
+
+    int ret = 0;
+    if(ld != NULL)
+    {
+        ld->Show();
+
+        if (RUN_ALL_TESTS() == 1) {
+            return 1;
+        }
+
+        ret = a.exec();
+
+        delete ld;
     }
 
-    return a.exec();
+    return ret;
 }

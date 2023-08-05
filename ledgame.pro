@@ -15,11 +15,16 @@ include($$PWD/controller/controller.pri)
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ledgameui.cpp \
+    ledgame.cpp \
     main.cpp \
     widget.cpp \
     widget_test.cpp
 
 HEADERS += \
+    Ledgameinterface.h \
+    ledgameui.h \
+    ledgame.h \
     widget.h \
     widget_test.h
 

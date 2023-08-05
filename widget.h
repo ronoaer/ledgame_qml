@@ -30,6 +30,7 @@ class Widget : public QWidget {
 
  private slots:
     void onResetContext();
+    //void onButtonClicked();
 
  private:
     void ResetButtonText(const int count);

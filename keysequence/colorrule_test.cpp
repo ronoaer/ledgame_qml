@@ -11,6 +11,7 @@ TEST(ColorRule, HandleRequest) {
     ColorRule* green_rule = new GreenRule(yellow_rule);
     ColorRule* red_rule = new RedRule(green_rule);
 
+
     int press_index = 0;
     int key_index = 0;
     ColorRequest *request = new ColorRequest(press_index, key_index);
