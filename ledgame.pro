@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,6 +15,7 @@ include($$PWD/uicomponent/uicomponent.pri)
 
 SOURCES += \
     ledgame.cpp \
+    ledgame_test.cpp \
     main.cpp
 
 HEADERS += \

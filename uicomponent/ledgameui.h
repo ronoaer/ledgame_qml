@@ -20,7 +20,10 @@ class LedGameUI : public QWidget
     void Show();
 
     void set_usecase(LedGameInterface *interface);
-    LedGameInterface *usecase();
+    LedGameInterface* usecase() { return usecase_; }
+
+    QList<LedIndicator*> led_indicators() { return led_indicators_; }
+    QList<QPushButton*> led_buttons() { return led_buttons_; }
 
  signals:
 

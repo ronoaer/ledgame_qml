@@ -36,10 +36,6 @@ void LedGameUI::set_usecase(LedGameInterface *interface) {
     usecase_ = interface;
 }
 
-LedGameInterface *LedGameUI::usecase() {
-    return usecase_;
-}
-
 void LedGameUI::onButtonClicked() {
     QPushButton *pb = reinterpret_cast<QPushButton*>(sender());
     QString key = pb->text();
@@ -121,11 +117,12 @@ void LedGameUI::ResetButtonsText() {
 }
 
 void LedGameUI::UpdateLedsColor(const QColor color, const int press_index) {
-    if (led_indicators_.size() == 0) {
+    int size = led_indicators_.size();
+    if (size == 0) {
         return;
     }
 
-    led_indicators_[led_indicators_.size()-1]->UpdateColor(color, press_index);
+    led_indicators_[size-1]->UpdateColor(color, press_index);
 }
 
 QColor LedGameUI::IndexToColor(const int index) {

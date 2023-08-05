@@ -30,6 +30,7 @@ void LedGame::Show() {
 }
 
 LedGame::LedGame() {
+    ui_ = NULL;
 }
 
 bool LedGame::constructor() {
