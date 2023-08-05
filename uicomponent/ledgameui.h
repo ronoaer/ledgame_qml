@@ -7,6 +7,8 @@
 #include <QPushButton>
 #include <QWidget>
 
+class LedIndicator;
+
 
 class LedGameUI : public QWidget
 {
@@ -36,10 +38,9 @@ class LedGameUI : public QWidget
     QString IndexToText(const int index);
     QColor IndexToColor(const int index);
 
-    void UpdateLedColor(QLabel* led, const QColor color);
     void UpdateLedsColor(const QColor color, const int press_index);
 
-    QList<QLabel*> led_indicators_;
+    QList<LedIndicator*> led_indicators_;
     QList<QPushButton*> led_buttons_;
 
     LedGameInterface* usecase_;

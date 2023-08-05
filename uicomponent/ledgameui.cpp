@@ -1,5 +1,7 @@
 #include "ledgameui.h"
 
+#include "ledindicator.h"
+
 #include <QRandomGenerator>
 #include <QGridLayout>
 
@@ -58,15 +60,16 @@ bool LedGameUI::constructor() {
     QGridLayout *layout = new QGridLayout;
 
     int seed = QRandomGenerator::global()->bounded(count);
+    LedIndicator* prev = NULL;
+
     for (int i = 0; i < count; i++) {
         // initialize labels
-        QLabel* led = new QLabel(this);
-        led->setFixedSize(QSize(40, 40));
+        LedIndicator* led = new LedIndicator(this, IndexToColor(seed));
         led->setText("Led " + QString::number(i+1));
-        UpdateLedColor(led, IndexToColor(i));
-
+        led->SetNextLed(prev);
         layout->addWidget(led, 0, i);
         led_indicators_.push_back(led);
+        prev = led;
 
         // initialize buttons
         QPushButton* button = new QPushButton(this);
@@ -79,7 +82,6 @@ bool LedGameUI::constructor() {
 
         seed++;
         seed = seed % count;
-
     }
 
     setLayout(layout);
@@ -118,30 +120,12 @@ void LedGameUI::ResetButtonsText() {
     }
 }
 
-
-void LedGameUI::UpdateLedColor(QLabel* led, const QColor color) {
-    QPalette palette;
-    palette.setColor(QPalette::Window, color);
-
-    led->setAutoFillBackground(true);
-    led->setPalette(palette);
-}
-
 void LedGameUI::UpdateLedsColor(const QColor color, const int press_index) {
-    QColor newest_color = color;
-
-    int need_update_count = 0;
-    for (int i=led_indicators_.size() - 1; i >= 0; i--) {
-        if (need_update_count >= press_index) {
-            return;
-        }
-
-        QColor old_color = led_indicators_[i]->palette().color(QPalette::Window);
-        UpdateLedColor(led_indicators_[i], newest_color);
-        newest_color = old_color;
-
-        need_update_count++;
+    if (led_indicators_.size() == 0) {
+        return;
     }
+
+    led_indicators_[led_indicators_.size()-1]->UpdateColor(color, press_index);
 }
 
 QColor LedGameUI::IndexToColor(const int index) {

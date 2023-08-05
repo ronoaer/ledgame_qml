@@ -1,6 +1,6 @@
 #include "ledgame.h"
 
-#include "ledgameui.h"
+#include "uicomponent/ledgameui.h"
 #include "controller/stepcontroller.h"
 #include "keysequence/generatorinterface.h"
 #include "keysequence/keysequence.h"
