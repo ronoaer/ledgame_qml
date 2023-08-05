@@ -1,3 +1,6 @@
+// Copyright 2023
+// Author: LH
+// this is ...
 #include "ledgame.h"
 
 #include <QApplication>

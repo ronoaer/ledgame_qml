@@ -1,3 +1,7 @@
+// Copyright 2023
+// Author: LH
+// this is implementing of class LedGame
+
 #include "ledgame.h"
 
 #include "uicomponent/ledgameui.h"
@@ -40,7 +44,9 @@ bool LedGame::constructor() {
     QString str_initialize_keys("ABC");
 
     // initialize key sequence
-    GeneratorInterface* key_generator = new KeySequenceGenerator(str_initialize_keys);
+    GeneratorInterface* key_generator =
+        new KeySequenceGenerator(str_initialize_keys);
+
     KeySequence* key_sequence = new KeySequence(key_generator);
     usecase_ = new LedGameUsecase(key_sequence, Qt::green);
 

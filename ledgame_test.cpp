@@ -1,3 +1,6 @@
+// Copyright 2023
+// Author: LH
+// this is unit-test of class LedGame,
 #include "ledgame.h"
 
 #include "gtest/gtest.h"

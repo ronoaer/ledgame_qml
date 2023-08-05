@@ -4,8 +4,6 @@
 #include "../usecase/ledgameusecase.h"
 #include "ledindicator.h"
 
-#include <QSignalSpy>
-
 #include "gtest/gtest.h"
 
 namespace ledgameui_test {

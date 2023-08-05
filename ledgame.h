@@ -1,17 +1,21 @@
-#ifndef LEDGAME_LEDGAME_H_
-#define LEDGAME_LEDGAME_H_
+// Copyright 2023
+// Author: LH
+// this is declare of class LedGame,
+// for compositing uicomponent(LedGameUI) and usecase(LedGameUsecase)
+#ifndef LEDGAME_H_
+#define LEDGAME_H_
 
 class LedGameUI;
 class LedGameUsecase;
 
 class LedGame {
-public:
+ public:
     ~LedGame();
     static LedGame *NewInstance();
 
     void Show();
 
-private:
+ private:
     LedGame();
     bool constructor();
 
@@ -19,4 +23,4 @@ private:
     LedGameUsecase* usecase_;
 };
 
-#endif // LEDGAME_LEDGAME_H_
+#endif  // LEDGAME_H_

@@ -1,8 +1,8 @@
 // Copyright 2023
 // Author: LH
 // this is a abstract class, for descripting logic inteface
-#ifndef LEDGAME_LEDGAMEINTERFACE_H_
-#define LEDGAME_LEDGAMEINTERFACE_H_
+#ifndef LEDGAMEINTERFACE_H_
+#define LEDGAMEINTERFACE_H_
 
 #include <QString>
 #include <QColor>
@@ -19,4 +19,4 @@ public:
 };
 
 
-#endif // LEDGAME_LEDGAMEINTERFACE_H_
+#endif // LEDGAMEINTERFACE_H_
