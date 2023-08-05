@@ -1,3 +1,6 @@
+// Copyright 2023
+// Author: LH
+// this is ...
 #include "colorrule.h"
 
 ColorRequest::ColorRequest(const int press_index, const int key_index) :

@@ -1,3 +1,6 @@
+// Copyright 2023
+// Author: LH
+// this is ...
 #include "ledgameui.h"
 
 #include "ledindicator.h"
@@ -24,7 +27,6 @@ LedGameUI *LedGameUI::NewInstance() {
 }
 
 LedGameUI::~LedGameUI() {
-
 }
 
 void LedGameUI::Show() {
@@ -36,6 +38,18 @@ void LedGameUI::set_usecase(LedGameInterface *interface) {
     usecase_ = interface;
 }
 
+LedGameInterface *LedGameUI::usecase() {
+    return usecase_;
+}
+
+QList<LedIndicator *> LedGameUI::led_indicators() {
+    return led_indicators_;
+}
+
+QList<QPushButton *> LedGameUI::led_buttons() {
+    return led_buttons_;
+}
+
 void LedGameUI::onButtonClicked() {
     QPushButton *pb = reinterpret_cast<QPushButton*>(sender());
     QString key = pb->text();
@@ -44,7 +58,7 @@ void LedGameUI::onButtonClicked() {
     num_press_index_++;
 
     UpdateLedsColor(newest_color, num_press_index_);
-    ResetContext(num_press_index_, LedCount);
+    ResetContext(&num_press_index_, LedCount);
 }
 
 bool LedGameUI::constructor() {
@@ -85,12 +99,12 @@ bool LedGameUI::constructor() {
     return result;
 }
 
-void LedGameUI::ResetContext(int &press_index, const int max_count) {
-    if (press_index < max_count) {
+void LedGameUI::ResetContext(int* press_index, const int max_count) {
+    if (*press_index < max_count) {
         return;
     }
 
-    press_index = 0;
+    *press_index = 0;
 
     if (!usecase_->CanResetContext()) {
         return;
@@ -112,7 +126,6 @@ void LedGameUI::ResetButtonsText() {
 
         seed++;
         seed = seed % count;
-
     }
 }
 

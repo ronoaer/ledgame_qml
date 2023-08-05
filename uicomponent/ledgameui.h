@@ -1,3 +1,6 @@
+// Copyright 2023
+// Author: LH
+// this is ...
 #ifndef UICOMPONENT_LEDGAMEUI_H_
 #define UICOMPONENT_LEDGAMEUI_H_
 
@@ -10,9 +13,9 @@
 class LedIndicator;
 
 
-class LedGameUI : public QWidget
-{
+class LedGameUI : public QWidget {
     Q_OBJECT
+
  public:
     static LedGameUI* NewInstance();
     ~LedGameUI();
@@ -20,10 +23,10 @@ class LedGameUI : public QWidget
     void Show();
 
     void set_usecase(LedGameInterface *interface);
-    LedGameInterface* usecase() { return usecase_; }
+    LedGameInterface *usecase();
 
-    QList<LedIndicator*> led_indicators() { return led_indicators_; }
-    QList<QPushButton*> led_buttons() { return led_buttons_; }
+    QList<LedIndicator*> led_indicators();
+    QList<QPushButton*> led_buttons();
 
  signals:
 
@@ -34,7 +37,7 @@ class LedGameUI : public QWidget
     LedGameUI();
     bool constructor();
 
-    void ResetContext(int& press_index, const int max_count);
+    void ResetContext(int* press_index, const int max_count);
     void ResetButtonsText();
 
     // for initialize button and label
@@ -49,7 +52,6 @@ class LedGameUI : public QWidget
     LedGameInterface* usecase_;
 
     int num_press_index_;
-
 };
 
-#endif // UICOMPONENT_LEDGAMEUI_H_
+#endif  // UICOMPONENT_LEDGAMEUI_H_

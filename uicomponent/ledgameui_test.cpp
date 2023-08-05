@@ -1,3 +1,6 @@
+// Copyright 2023
+// Author: LH
+// this is ...
 #include "ledgameui.h"
 #include "../keysequence/generatorinterface.h"
 #include "../keysequence/keysequence.h"
@@ -8,7 +11,7 @@
 
 namespace ledgameui_test {
 class MockGenerator : public GeneratorInterface {
-public:
+ public:
     virtual QString GenerateKeySequence() {
         return "ABB";
     }
@@ -93,4 +96,4 @@ public:
         delete usecase;
         delete lg_ui;
     }
-}
+}  // namespace ledgameui_test

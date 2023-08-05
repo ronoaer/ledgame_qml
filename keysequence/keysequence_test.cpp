@@ -30,5 +30,5 @@ class MockGenerator : public GeneratorInterface {
 
         delete seq;
     }
-}  // namespace charsequence_test
+}  // namespace keysequence_test
 

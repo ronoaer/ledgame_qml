@@ -1,8 +1,8 @@
 // Copyright 2023
 // Author: LH
 // this is ...
-#ifndef LEDGAME_KEYSEQUENCE_GENERATORINTERFACE_H_
-#define LEDGAME_KEYSEQUENCE_GENERATORINTERFACE_H_
+#ifndef KEYSEQUENCE_GENERATORINTERFACE_H_
+#define KEYSEQUENCE_GENERATORINTERFACE_H_
 
 #include <QString>
 
@@ -25,4 +25,4 @@ class KeySequenceGenerator : public GeneratorInterface {
     QString seed_;
 };
 
-#endif  // LEDGAME_SEQUENCE_GENERATORINTERFACE_H_
+#endif  // KEYSEQUENCE_GENERATORINTERFACE_H_

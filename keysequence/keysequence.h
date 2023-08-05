@@ -1,8 +1,8 @@
 // Copyright 2023
 // Author: LH
 // this is ...
-#ifndef LEDGAME_KEYSEQUENCE_KEYSEQUENCE_H_
-#define LEDGAME_KEYSEQUENCE_KEYSEQUENCE_H_
+#ifndef KEYSEQUENCE_KEYSEQUENCE_H_
+#define KEYSEQUENCE_KEYSEQUENCE_H_
 
 #include <QString>
 #include <QColor>
@@ -34,4 +34,4 @@ class KeySequence {
     RedRule* red_rule_;
 };
 
-#endif  // LEDGAME_SEQUENCE_KEYSEQUENCE_H_
+#endif  // KEYSEQUENCE_KEYSEQUENCE_H_

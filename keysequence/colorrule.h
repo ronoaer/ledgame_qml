@@ -1,8 +1,8 @@
 // Copyright 2023
 // Author: LH
 // this is ...
-#ifndef LEDGRAME_KEYSEQUENCE_COLORRULE_H
-#define LEDGRAME_KEYSEQUENCE_COLORRULE_H
+#ifndef KEYSEQUENCE_COLORRULE_H_
+#define KEYSEQUENCE_COLORRULE_H_
 
 #include <QColor>
 
@@ -56,4 +56,4 @@ class RedRule : public ColorRule {
     ColorRule* rule_;
 };
 
-#endif  // LEDGRAME_KEYSEQUENCE_COLORRULE_H
+#endif  // KEYSEQUENCE_COLORRULE_H_

@@ -33,8 +33,7 @@ QColor LedIndicator::Color() const {
     return color_;
 }
 
-void LedIndicator::onUpdateColor(QColor color, int step_index)
-{
+void LedIndicator::onUpdateColor(QColor color, int step_index) {
     UpdateColor(color, step_index);
 }
 

@@ -5,9 +5,8 @@
 
 #include "gtest/gtest.h"
 
-//#include <catch2/catch.hpp>
-
-//SCENARIO("Happy path: UpdateColor", "[UpdateColor]") {
+// #include <catch2/catch.hpp>
+// SCENARIO("Happy path: UpdateColor", "[UpdateColor]") {
 //    GIVEN("3 Led-indicator, yellow, red, yellow") {
 //        LedIndicator* led1 = new LedIndicator(NULL, Qt::yellow);
 //        LedIndicator* led2 = new LedIndicator(NULL, Qt::red);
@@ -53,9 +52,9 @@
 //        delete led2;
 //        delete led3;
 //    }
-//}
+// }
 
-//SCENARIO("Sad path: UpdateColor", "[UpdateColor]") {
+// SCENARIO("Sad path: UpdateColor", "[UpdateColor]") {
 //    GIVEN(" 3 led-indincator") {
 //        LedIndicator* led1 = new LedIndicator(NULL, Qt::yellow);
 //        LedIndicator* led2 = new LedIndicator(NULL, Qt::red);
