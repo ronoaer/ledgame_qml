@@ -10,9 +10,7 @@
 
 class GeneratorInterface;
 class LedStrategyInterface;
-class YellowRule;
-class GreenRule;
-class RedRule;
+class ColorRule;
 
 class KeySequence {
  public:
@@ -29,9 +27,9 @@ class KeySequence {
     GeneratorInterface* generator_;
 
     QString key_sequence_;
-    YellowRule* yellow_rule_;
-    GreenRule* green_rule_;
-    RedRule* red_rule_;
+    ColorRule* yellow_rule_;
+    ColorRule* green_rule_;
+    ColorRule* red_rule_;
 };
 
 #endif  // KEYSEQUENCE_KEYSEQUENCE_H_
