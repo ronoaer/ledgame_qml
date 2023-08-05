@@ -19,7 +19,7 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
-    Ledgameinterface.h \
+    ledgameinterface.h \
     ledgame.h
 
 # Default rules for deployment.

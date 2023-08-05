@@ -19,4 +19,4 @@ public:
 };
 
 
-#endif // LEDGAMEINTERFACE_H_
+#endif  // LEDGAMEINTERFACE_H_
