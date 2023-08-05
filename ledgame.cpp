@@ -25,11 +25,15 @@ LedGame *LedGame::NewInstance() {
     return game;
 }
 
-void LedGame::Show() {
-    if (ui_ == NULL) {
-        return;
-    }
+void LedGame::Show(const QPoint p) {
+    int width = ui_->width();
+    int height = ui_->height();
+    ui_->resize(width, height);
 
+    int x = (p.x() - ui_->width())/2;
+    int y = (p.y() - ui_->height())/2;
+
+    ui_->move(x, y);
     ui_->Show();
 }
 

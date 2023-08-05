@@ -8,7 +8,7 @@
 #include <QColor>
 
 class LedGameInterface {
-public:
+ public:
     virtual ~LedGameInterface() {}
 
     virtual QColor Presskey(const QString& key, const int press_index) = 0;

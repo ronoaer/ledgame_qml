@@ -5,6 +5,8 @@
 #ifndef LEDGAME_H_
 #define LEDGAME_H_
 
+#include <QPoint>
+
 class LedGameUI;
 class LedGameUsecase;
 
@@ -13,7 +15,7 @@ class LedGame {
     ~LedGame();
     static LedGame *NewInstance();
 
-    void Show();
+    void Show(const QPoint p);
 
  private:
     LedGame();
