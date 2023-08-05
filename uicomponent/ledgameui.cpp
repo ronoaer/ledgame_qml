@@ -3,10 +3,11 @@
 // this is ...
 #include "ledgameui.h"
 
-#include "ledindicator.h"
-
 #include <QRandomGenerator>
 #include <QGridLayout>
+
+#include "ledindicator.h"
+
 
 const int LedCount = 3;
 
