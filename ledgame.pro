@@ -6,7 +6,7 @@ CONFIG += c++17
 
 include(../../googletest-main/gtest_dependency.pri)
 include($$PWD/keysequence/keysequence.pri)
-include($$PWD/controller/controller.pri)
+include($$PWD/usecase/usecase.pri)
 include($$PWD/uicomponent/uicomponent.pri)
 
 # You can make your code fail to compile if it uses deprecated APIs.

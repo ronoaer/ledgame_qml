@@ -1,8 +1,8 @@
 // Copyright 2023
 // Author: LH
 // this is ...
-#ifndef LEDGAME_LEDINDICATOR_LEDINDICATOR_H_
-#define LEDGAME_LEDINDICATOR_LEDINDICATOR_H_
+#ifndef UICOMPONENT_LEDINDICATOR_H_
+#define UICOMPONENT_LEDINDICATOR_H_
 
 #include <QColor>
 #include <QLabel>
@@ -36,4 +36,4 @@ class LedIndicator : public QLabel {
     LedIndicator* next_led_;
 };
 
-#endif  // LEDGAME_LEDINDICATOR_LEDINDICATOR_H_
+#endif  // UICOMPONENT_LEDINDICATOR_H_

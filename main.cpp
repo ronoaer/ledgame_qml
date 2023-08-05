@@ -7,16 +7,14 @@
 
 using namespace testing;
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
     ::testing::InitGoogleTest(&argc, argv);
 
     LedGame* ld = LedGame::NewInstance();
 
     int ret = 0;
-    if(ld != NULL)
-    {
+    if(ld != NULL) {
         ld->Show();
 
         if (RUN_ALL_TESTS() == 1) {

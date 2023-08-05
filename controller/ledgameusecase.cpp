@@ -7,18 +7,18 @@
 
 #include "../keysequence/keysequence.h"
 
-StepController::StepController(KeySequence* key_sequence,
+LedGameUsecase::LedGameUsecase(KeySequence* key_sequence,
                                const QColor reset_color_flag) :
     key_sequence_(key_sequence),
     reset_color_flag_(reset_color_flag) {
     can_be_reset_ = true;
 }
 
-StepController::~StepController() {
+LedGameUsecase::~LedGameUsecase() {
     delete key_sequence_;
 }
 
-QColor StepController::Presskey(const QString &key, const int press_index) {
+QColor LedGameUsecase::Presskey(const QString &key, const int press_index) {
     if (press_index == 0) {
         can_be_reset_ = true;
     }
@@ -30,10 +30,10 @@ QColor StepController::Presskey(const QString &key, const int press_index) {
     return color;
 }
 
-bool StepController::CanResetContext() {
+bool LedGameUsecase::CanResetContext() {
     return can_be_reset_;
 }
 
-void StepController::ResetContext() {
+void LedGameUsecase::ResetContext() {
     key_sequence_->ReRandomKeySequence();
 }

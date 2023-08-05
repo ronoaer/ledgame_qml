@@ -1,7 +1,7 @@
 // Copyright 2023
 // Author: LH
 // this is ...
-#include "stepcontroller.h"
+#include "ledgameusecase.h"
 
 #include <QString>
 #include <QColor>
@@ -25,7 +25,7 @@ public:
 TEST(StepController, Trigger) {
     GeneratorInterface* generator = new MockGenerator();
     KeySequence *seq = new KeySequence(generator);
-    StepController* contoller = new StepController(seq, Qt::green);
+    LedGameUsecase* contoller = new LedGameUsecase(seq, Qt::green);
 
     int press_index = 0;
     EXPECT_EQ(contoller->Presskey("A", press_index), Qt::green);

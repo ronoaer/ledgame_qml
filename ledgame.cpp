@@ -1,13 +1,13 @@
 #include "ledgame.h"
 
 #include "uicomponent/ledgameui.h"
-#include "controller/stepcontroller.h"
+#include "usecase/ledgameusecase.h"
 #include "keysequence/generatorinterface.h"
 #include "keysequence/keysequence.h"
 
 LedGame::~LedGame() {
     delete ui_;
-    delete controller_;
+    delete usecase_;
 }
 
 LedGame *LedGame::NewInstance() {
@@ -34,14 +34,16 @@ LedGame::LedGame() {
 
 bool LedGame::constructor() {
     ui_ = LedGameUI::NewInstance();
+
     // initialize StepContoller and first step;
     QString str_initialize_keys("ABC");
+
     // initialize key sequence
     GeneratorInterface* key_generator = new KeySequenceGenerator(str_initialize_keys);
     KeySequence* key_sequence = new KeySequence(key_generator);
-    controller_ = new StepController(key_sequence, Qt::green);
+    usecase_ = new LedGameUsecase(key_sequence, Qt::green);
 
-    ui_->set_usecase(controller_);
+    ui_->set_usecase(usecase_);
 
     return true;
 }

@@ -2,7 +2,7 @@
 #define LEDGAME_LEDGAME_H_
 
 class LedGameUI;
-class StepController;
+class LedGameUsecase;
 
 class LedGame {
 public:
@@ -16,7 +16,7 @@ private:
     bool constructor();
 
     LedGameUI* ui_;
-    StepController* controller_;
+    LedGameUsecase* usecase_;
 };
 
 #endif // LEDGAME_LEDGAME_H_

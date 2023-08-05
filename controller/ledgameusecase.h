@@ -1,8 +1,8 @@
 // Copyright 2023
 // Author: LH
 // this is ...
-#ifndef LEDGAME_CONTROLLER_STEPCONTROLLER_H
-#define LEDGAME_CONTROLLER_STEPCONTROLLER_H
+#ifndef LEDGAME_USECASE_LEDGAMEUSECASE_H
+#define LEDGAME_USECASE_LEDGAMEUSECASE_H
 
 #include "ledgameinterface.h"
 
@@ -10,10 +10,10 @@ class StepInterface;
 class KeySequence;
 
 
-class StepController : public LedGameInterface {
+class LedGameUsecase : public LedGameInterface {
  public:
-    explicit StepController(KeySequence* key_sequence, QColor reset_color_flag);
-    virtual ~StepController();
+    explicit LedGameUsecase(KeySequence* key_sequence, QColor reset_color_flag);
+     virtual ~LedGameUsecase();
 
     virtual QColor Presskey(const QString& key, const int press_index);
     virtual bool CanResetContext();
@@ -25,4 +25,4 @@ class StepController : public LedGameInterface {
     bool can_be_reset_;
 };
 
-#endif  // LEDGAME_CONTROLLER_STEPCONTROLLER_H
+#endif  // LEDGAME_USECASE_LEDGAMEUSECASE_H

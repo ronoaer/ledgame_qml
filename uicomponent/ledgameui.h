@@ -1,5 +1,5 @@
-#ifndef LEDGAME_LEDGAMEUI_H_
-#define LEDGAME_LEDGAMEUI_H_
+#ifndef UICOMPONENT_LEDGAMEUI_H_
+#define UICOMPONENT_LEDGAMEUI_H_
 
 #include "ledgameinterface.h"
 
@@ -49,4 +49,4 @@ class LedGameUI : public QWidget
 
 };
 
-#endif // LEDGAME_LEDGAMEUI_H_
+#endif // UICOMPONENT_LEDGAMEUI_H_
