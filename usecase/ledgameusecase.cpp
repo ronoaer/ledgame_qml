@@ -2,15 +2,17 @@
 // Author: LH
 // this is ...
 #include "ledgameusecase.h"
-
-#include <QPushButton>
-
 #include "../keysequence/keysequence.h"
+
+#include <QDebug>
 
 LedGameUsecase::LedGameUsecase(KeySequence* key_sequence,
                                const QColor reset_color_flag) :
+
+
     key_sequence_(key_sequence),
     reset_color_flag_(reset_color_flag) {
+
     can_be_reset_ = true;
 }
 
@@ -24,6 +26,7 @@ QColor LedGameUsecase::Presskey(const QString &key, const int press_index) {
     }
 
     QColor color = key_sequence_->KeyMapColor(key, press_index);
+
 
     can_be_reset_ = (reset_color_flag_ == color) && can_be_reset_;
 

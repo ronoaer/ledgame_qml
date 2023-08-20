@@ -6,6 +6,7 @@
 #define LEDGAME_H_
 
 #include <QPoint>
+class QQmlApplicationEngine;
 
 class LedGameUI;
 class LedGameUsecase;
@@ -15,7 +16,7 @@ class LedGame {
     ~LedGame();
     static LedGame *NewInstance();
 
-    void Show(const QPoint p);
+    LedGameUI* ui() { return ui_; }
 
  private:
     LedGame();
