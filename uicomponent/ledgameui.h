@@ -4,13 +4,11 @@
 #ifndef UICOMPONENT_LEDGAMEUI_H_
 #define UICOMPONENT_LEDGAMEUI_H_
 
-#include "ledgameinterface.h"
-
 #include <QLabel>
 #include <QPushButton>
 #include <QObject>
 
-class LedIndicator;
+class LedGameInterface;
 class QQuickView;
 
 
@@ -24,13 +22,14 @@ class LedGameUI : public QObject {
     void set_usecase(LedGameInterface *interface);
     LedGameInterface *usecase();
 
+    void initializeUIValues();
+
  signals:
     void UpdateLedsColor(const int press_index, const QString color);
     void UpdateButtonText(const int index, const QString& key);
 
  public slots:
     void onButtonClicked(QString key);
-    void initializeButtons();
 
  private:
     LedGameUI();
@@ -38,9 +37,12 @@ class LedGameUI : public QObject {
     void ResetContext(int* press_index, const int max_count);
     void ResetButtonsText();
 
+    void initializeLedsColor();
+    void initializeButtonsText();
+
     // for initialize button and label
     QString IndexToText(const int index);
-    QColor IndexToColor(const int index);
+    QString IndexToColorString(const int index);
 
     LedGameInterface* usecase_;
 

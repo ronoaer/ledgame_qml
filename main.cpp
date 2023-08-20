@@ -2,9 +2,9 @@
 // Author: LH
 // this is ...
 #include "ledgame.h"
+#include "uicomponent/ledgameui.h"
 
 #include <QApplication>
-//#include <QDesktopWidget>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QScreen>
@@ -33,6 +33,8 @@ int main(int argc, char *argv[]) {
     if (ld != NULL) {
         engine.rootContext()->setContextProperty("LedGameUI", (QObject*)ld->ui());
         engine.load(url);
+
+        ld->ui()->initializeUIValues();
 
         if (RUN_ALL_TESTS() == 1) {
             return 1;

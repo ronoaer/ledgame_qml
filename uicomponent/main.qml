@@ -29,7 +29,5 @@ Window {
     Component.onCompleted: {
         LedGameUI.UpdateLedsColor.connect(labels.updateColor)
         LedGameUI.UpdateButtonText.connect(buttons.updateText)
-
-        LedGameUI.initializeButtons();
     }
 }

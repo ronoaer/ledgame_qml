@@ -3,6 +3,8 @@
 // this is ...
 #include "ledgameui.h"
 
+#include "ledgameinterface.h"
+
 #include <QRandomGenerator>
 #include <QGridLayout>
 #include <QQuickView>
@@ -16,8 +18,6 @@ const int LedCount = 3;
 LedGameUI::LedGameUI()
     : QObject(NULL) {
     num_press_index_ = 0;
-
-    ResetButtonsText();
 }
 
 LedGameUI *LedGameUI::NewInstance() {
@@ -59,7 +59,12 @@ void LedGameUI::onButtonClicked(QString key) {
     ResetContext(&num_press_index_, LedCount);
 }
 
-void LedGameUI::initializeButtons() {
+void LedGameUI::initializeUIValues() {
+    initializeButtonsText();
+    initializeLedsColor();
+}
+
+void LedGameUI::initializeButtonsText() {
     ResetButtonsText();
 }
 
@@ -95,19 +100,17 @@ void LedGameUI::ResetButtonsText() {
     }
 }
 
-QColor LedGameUI::IndexToColor(const int index) {
-    switch (index) {
-    case 0:
-        return Qt::red;
+void LedGameUI::initializeLedsColor() {
+    int count = LedCount;
+    int seed = QRandomGenerator::global()->bounded(count);
 
-    case 1:
-        return Qt::yellow;
+    for (int i = 0; i < count; i++) {
+        QString key = IndexToColorString(seed);
+        Q_EMIT UpdateLedsColor(i, key);
 
-    case 2:
-        return Qt::green;
+        seed++;
+        seed = seed % count;
     }
-
-    return Qt::green;
 }
 
 
@@ -124,4 +127,19 @@ QString LedGameUI::IndexToText(const int index) {
     }
 
     return "A";
+}
+
+QString LedGameUI::IndexToColorString(const int index) {
+    switch (index) {
+    case 0:
+        return "red";
+
+    case 1:
+        return "yellow";
+
+    case 2:
+        return "green";
+    }
+
+    return "green";
 }

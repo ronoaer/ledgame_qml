@@ -10,17 +10,6 @@ Item {
 
     ListModel {
         id: ledsModel
-        ListElement { name: "Led 1"
-            backgroundx: "red"
-        }
-
-        ListElement { name: "Led 2"
-            backgroundx: "yellow"
-        }
-
-        ListElement { name: "Led 3"
-            backgroundx: "red"
-        }
     }
 
 
@@ -34,7 +23,7 @@ Item {
         delegate: Rectangle {
             width: 40
             height: 40
-            color: backgroundx
+            color: bg_color
 
             Text {
                 anchors.centerIn: parent
@@ -43,12 +32,19 @@ Item {
         }
     }
 
+    Component.onCompleted: {
+        for (var i=0; i<3; i++) {
+            var data = {'name': qsTr("Led ") + (i+1).toString(), 'bg_color': "red"};
+            ledsModel.append(data)
+        }
+    }
+
     function updateColor(press_index, color) {
         var count = 0;
 
         for (var i=ledsModel.count-1; i>=0; i--) {
-            var curcolor = ledsModel.get(i).backgroundx;
-            ledsModel.get(i).backgroundx = color;
+            var curcolor = ledsModel.get(i).bg_color;
+            ledsModel.get(i).bg_color = color;
             color = curcolor;
 
             count++;

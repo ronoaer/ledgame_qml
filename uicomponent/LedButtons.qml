@@ -10,17 +10,10 @@ Item {
 
     ListModel {
         id: ledsModel
-        ListElement {
-            title: "A"
-        }
 
-        ListElement {
-            title: "B"
-        }
-
-        ListElement {
-            title: "C"
-        }
+        ListElement{title: "A"}
+        ListElement{title: "B"}
+        ListElement{title: "C"}
     }
 
     GridView {
@@ -50,6 +43,6 @@ Item {
     }
 
     function updateText(index, key) {
-        buttons.model.get(index).title = key;
+       ledsModel.get(index).title = key;
     }
 }
