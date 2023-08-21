@@ -5,25 +5,24 @@ import QtQuick.Layouts 1.1
 Item {
     id: root
 
-    width: 400
-    height: 200
+    width: 300
+    height: 40
 
     ListModel {
         id: ledsModel
     }
 
-
     GridView {
         id: labels
-
-        width: parent.width
-        height: parent.height
+        anchors.fill: parent
         model: ledsModel
 
+        cellWidth: parent.width / 3
+
         delegate: Rectangle {
-            width: 40
-            height: 40
-            color: bg_color
+           width: 40
+           height: 40
+           color: bg_color
 
             Text {
                 anchors.centerIn: parent
@@ -33,8 +32,12 @@ Item {
     }
 
     Component.onCompleted: {
+        var colorArray = ["red", "yellow", "green"]
+
         for (var i=0; i<3; i++) {
-            var data = {'name': qsTr("Led ") + (i+1).toString(), 'bg_color': "red"};
+            var colorIndex = Math.floor(Math.random() * 3)
+
+            var data = {'name': qsTr("Led ") + (i+1).toString(), 'bg_color': colorArray[colorIndex]};
             ledsModel.append(data)
         }
     }

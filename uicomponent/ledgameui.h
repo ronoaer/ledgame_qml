@@ -22,8 +22,6 @@ class LedGameUI : public QObject {
     void set_usecase(LedGameInterface *interface);
     LedGameInterface *usecase();
 
-    void initializeUIValues();
-
  signals:
     void UpdateLedsColor(const int press_index, const QString color);
     void UpdateButtonText(const int index, const QString& key);
@@ -36,9 +34,6 @@ class LedGameUI : public QObject {
 
     void ResetContext(int* press_index, const int max_count);
     void ResetButtonsText();
-
-    void initializeLedsColor();
-    void initializeButtonsText();
 
     // for initialize button and label
     QString IndexToText(const int index);

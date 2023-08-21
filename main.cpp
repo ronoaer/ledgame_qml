@@ -34,8 +34,6 @@ int main(int argc, char *argv[]) {
         engine.rootContext()->setContextProperty("LedGameUI", (QObject*)ld->ui());
         engine.load(url);
 
-        ld->ui()->initializeUIValues();
-
         if (RUN_ALL_TESTS() == 1) {
             return 1;
         }

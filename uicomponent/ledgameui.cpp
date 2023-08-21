@@ -59,15 +59,6 @@ void LedGameUI::onButtonClicked(QString key) {
     ResetContext(&num_press_index_, LedCount);
 }
 
-void LedGameUI::initializeUIValues() {
-    initializeButtonsText();
-    initializeLedsColor();
-}
-
-void LedGameUI::initializeButtonsText() {
-    ResetButtonsText();
-}
-
 void LedGameUI::ResetContext(int* press_index, const int max_count) {
     if (*press_index < max_count) {
         return;
@@ -100,19 +91,6 @@ void LedGameUI::ResetButtonsText() {
     }
 }
 
-void LedGameUI::initializeLedsColor() {
-    int count = LedCount;
-    int seed = QRandomGenerator::global()->bounded(count);
-
-    for (int i = 0; i < count; i++) {
-        QString key = IndexToColorString(seed);
-        Q_EMIT UpdateLedsColor(i, key);
-
-        seed++;
-        seed = seed % count;
-    }
-}
-
 
 QString LedGameUI::IndexToText(const int index) {
     switch (index) {
@@ -127,19 +105,4 @@ QString LedGameUI::IndexToText(const int index) {
     }
 
     return "A";
-}
-
-QString LedGameUI::IndexToColorString(const int index) {
-    switch (index) {
-    case 0:
-        return "red";
-
-    case 1:
-        return "yellow";
-
-    case 2:
-        return "green";
-    }
-
-    return "green";
 }

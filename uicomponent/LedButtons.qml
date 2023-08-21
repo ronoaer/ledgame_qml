@@ -5,39 +5,51 @@ import QtQuick.Layouts 1.1
 Item {
     id: root
 
-    width: 400
-    height: 200
+    width: 300
+    height: 40
 
     ListModel {
         id: ledsModel
-
-        ListElement{title: "A"}
-        ListElement{title: "B"}
-        ListElement{title: "C"}
     }
 
     GridView {
         id: buttons
-        width: parent.width
-        height: parent.height
-
+        anchors.fill: parent
+        cellWidth: parent.width / 3
         model: ledsModel
 
-        delegate: Rectangle {
+        delegate: Button {
+            id: button
             width: 40
             height: 40
-            color: "gray"
+            text: title
 
-            Text {
-                anchors.centerIn: parent
-                text: title
+            background: Rectangle {
+                border.color: button.down ? "#17a81a" : "#21be2b"
+                border.width: 1
+                radius: 2
             }
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    LedGameUI.onButtonClicked(title);
-                }
+
+            onClicked: {
+                LedGameUI.onButtonClicked(title);
+            }
+        }
+    }
+
+    Component.onCompleted: {
+        var keyArray = ["A", "B", "C"]
+        var keyIndex = Math.floor(Math.random() * 3)
+
+        console.log(keyIndex)
+
+        for (var i=0; i<3; i++) {
+            var data = {'title': keyArray[keyIndex]};
+            ledsModel.append(data)
+
+            keyIndex++
+            if (keyIndex > 2) {
+                keyIndex = 0
             }
         }
     }
