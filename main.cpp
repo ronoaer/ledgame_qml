@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     ::testing::InitGoogleTest(&argc, argv);
 
     QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("main.qml"));
+    const QUrl url(QStringLiteral("qrc:/uicomponent/qml/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
         &a, [url](QObject *obj, const QUrl &objUrl) {
             if (!obj && url == objUrl)
