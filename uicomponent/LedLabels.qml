@@ -32,7 +32,7 @@ Item {
     }
 
     Component.onCompleted: {
-        var colorArray = ["red", "yellow", "green"]
+        var colorArray = ["#ff0000", "#ffff00", "#00ff00"]
 
         for (var i=0; i<3; i++) {
             var colorIndex = Math.floor(Math.random() * 3)

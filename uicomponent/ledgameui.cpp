@@ -46,13 +46,7 @@ void LedGameUI::onButtonClicked(QString key) {
     QColor newest_color = usecase_->Presskey(key, num_press_index_);
     num_press_index_++;
 
-    // for qml color
-    QString str_color = "yellow";
-    if (newest_color == Qt::green)  {
-        str_color = "green";
-    } else if  (newest_color == Qt::red) {
-        str_color = "red";
-    }
+    QString str_color = newest_color.name();
 
     Q_EMIT UpdateLedsColor(num_press_index_, str_color);
 
