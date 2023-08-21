@@ -6,32 +6,22 @@ import QtQuick.Layouts 1.1
 Window {
     id: root
     visible: true
-    width: 200
+    width: 450
     height: 300
 
     ColumnLayout {
-//        anchors.centerIn: parent
-//        anchors.leftMargin: 100
-
-
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.verticalCenter
-        //anchors.horizontalCenter: parrent.horizontalCenter
-
+        anchors.centerIn: parent
         spacing: 10
 
         LedLabels{
             id: labels
             height: 60
-            Layout.alignment: Qt.AlignHCenter
         }
 
         LedButtons{
             id: buttons
             height: 80
-            Layout.alignment: Qt.AlignHCenter
         }
-
     }
 
     Component.onCompleted: {

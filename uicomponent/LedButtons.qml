@@ -25,9 +25,11 @@ Item {
             text: title
 
             background: Rectangle {
-                border.color: button.down ? "#17a81a" : "#21be2b"
+                border.color: button.hovered ? "#17a81a" : "#aba9b2"
                 border.width: 1
                 radius: 2
+                opacity: enabled ? 1 : 0.3
+                color: "#dcdcdc"
             }
 
 
@@ -40,8 +42,6 @@ Item {
     Component.onCompleted: {
         var keyArray = ["A", "B", "C"]
         var keyIndex = Math.floor(Math.random() * 3)
-
-        console.log(keyIndex)
 
         for (var i=0; i<3; i++) {
             var data = {'title': keyArray[keyIndex]};
