@@ -10,7 +10,7 @@
 namespace charSequencecenerator_test {
 
 TEST(ColorRule, HandleRequest) {
-    ColorRule* yellow_rule = new YellowRule(NULL);
+    ColorRule* yellow_rule = new YellowRule(nullptr);
     ColorRule* green_rule = new GreenRule(yellow_rule);
     ColorRule* red_rule = new RedRule(green_rule);
 
