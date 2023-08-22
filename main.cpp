@@ -2,7 +2,6 @@
 // Author: LH
 // this is ...
 #include "ledgame.h"
-#include "uicomponent/ledgameui.h"
 
 #include <QApplication>
 #include <QQmlApplicationEngine>
@@ -10,7 +9,6 @@
 #include <QScreen>
 
 #include <gtest/gtest.h>
-#include <gmock/gmock-matchers.h>
 
 using namespace testing;
 

@@ -4,13 +4,9 @@
 #ifndef UICOMPONENT_LEDGAMEUI_H_
 #define UICOMPONENT_LEDGAMEUI_H_
 
-#include <QLabel>
-#include <QPushButton>
 #include <QObject>
 
 class LedGameInterface;
-class QQuickView;
-
 
 class LedGameUI : public QObject {
     Q_OBJECT

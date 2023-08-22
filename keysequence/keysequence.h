@@ -6,7 +6,6 @@
 
 #include <QString>
 #include <QColor>
-#include <QMap>
 
 class GeneratorInterface;
 class LedStrategyInterface;

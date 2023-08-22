@@ -6,12 +6,7 @@
 #include "ledgameinterface.h"
 
 #include <QRandomGenerator>
-#include <QGridLayout>
-#include <QQuickView>
 #include <QObject>
-#include <QQuickItem>
-
-#include <QDebug>
 
 const int LedCount = 3;
 

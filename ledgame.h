@@ -5,9 +5,6 @@
 #ifndef LEDGAME_H_
 #define LEDGAME_H_
 
-#include <QPoint>
-class QQmlApplicationEngine;
-
 class LedGameUI;
 class LedGameUsecase;
 
