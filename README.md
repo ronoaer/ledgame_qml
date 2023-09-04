@@ -18,7 +18,7 @@ Then: Regerate KeySequence, and reset Buttons
 
 ![Effect](https://github.com/ronoaer/ledgame/blob/main/ui.png)
 
-![Framework](https://github.com/ronoaer/ledgame/blob/main/framework.png)
+![Framework](https://github.com/ronoaer/ledgame_qml/blob/main/framework.png)
 Qt/C++
 
 e.g. Sad Path
