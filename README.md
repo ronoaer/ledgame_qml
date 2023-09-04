@@ -1,5 +1,5 @@
 # ledgame
-it's implemented by Qt(5, 6)/C++ 17(MacOS 12.6 and Ubuntu 20)
+it's implemented by Qt(5, 6), C++ 17 and QML (MacOS 12.6 and Ubuntu 20)
 unit test by GTest, please update configuration in file ledgame.pro "include(../../googletest-main/gtest_dependency.pri)"
 
 # description
