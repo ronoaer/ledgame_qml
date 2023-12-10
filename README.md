@@ -1,6 +1,6 @@
 # ledgame
 it's implemented by Qt(5, 6), C++ 17 and QML (MacOS 12.6 and Ubuntu 20)
-unit test by GTest, please update configuration in file ledgame.pro "include(../../googletest-main/gtest_dependency.pri)"
+unit test by GTest
 
 # description
 there are there buttons and labels, and KeySequence.
@@ -16,9 +16,9 @@ When: push "B"
 Then: Led3 -> green, Led2 -> green, Led1 -> green
 Then: Regerate KeySequence, and reset Buttons
 
-![Effect](https://github.com/ronoaer/ledgame/blob/main/ui.png)
+![Effect](https://github.com/ronoaer/ledgame/blob/main/docs/ui.png)
 
-![Framework](https://github.com/ronoaer/ledgame_qml/blob/main/framework.png)
+![Framework](https://github.com/ronoaer/ledgame_qml/blob/main/docs/framework.png)
 Qt/C++
 
 e.g. Sad Path
