@@ -16,7 +16,7 @@ When: push "B"
 Then: Led3 -> green, Led2 -> green, Led1 -> green
 Then: Regerate KeySequence, and reset Buttons
 
-![Effect](https://github.com/ronoaer/ledgame/blob/main/docs/ui.png)
+![Effect](https://github.com/ronoaer/ledgame_qml/blob/main/docs/ui.png)
 
 ![Framework](https://github.com/ronoaer/ledgame_qml/blob/main/docs/framework.png)
 Qt/C++
