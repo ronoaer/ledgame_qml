@@ -4,7 +4,7 @@
 #ifndef LEDGAME_USECASE_LEDGAMEUSECASE_H
 #define LEDGAME_USECASE_LEDGAMEUSECASE_H
 
-#include "ledgameinterface.h"
+#include "../usecase/ledgameinterface.h"
 
 class StepInterface;
 class KeySequence;

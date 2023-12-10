@@ -2,7 +2,7 @@
 // Author: LH
 // this is ...
 #include "ledgameusecase.h"
-#include "../keysequence/keysequence.h"
+#include "../key/keysequence.h"
 
 #include <QDebug>
 
