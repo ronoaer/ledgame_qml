@@ -2,7 +2,11 @@
 // Author: LH
 // this is ...
 #include <generatorinterface.h>
+<<<<<<< HEAD
 #include <keys.h>
+=======
+#include <keysequence.h>
+>>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
 
 #include <gtest/gtest.h>
 

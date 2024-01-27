@@ -18,6 +18,12 @@ set(PACKAGES
 
 find_package(Qt6 REQUIRED COMPONENTS ${PACKAGES})
 qt_standard_project_setup()
+<<<<<<< HEAD
+=======
+set(QRC_SOURCE_FILES
+    resource.qrc
+)
+>>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
 
 set(LIBS ${LIBS}
     Qt6::Core Qt6::Gui Qt6::Widgets
@@ -26,16 +32,25 @@ set(LIBS ${LIBS}
     Qt6::Core5Compat Qt6::Concurrent
 )
 
+<<<<<<< HEAD
 set(QRC
     ui.qrc
 )
 
 
+=======
+>>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
 enable_testing()
 
 add_subdirectory(app)
 add_subdirectory(ui)
+<<<<<<< HEAD
 add_subdirectory(key)
 add_subdirectory(usecase)
+=======
+add_subdirectory(usecase)
+add_subdirectory(key)
+
+>>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
 
 add_subdirectory(test)
