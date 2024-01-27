@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>uicomponent/qml/LedLabels.qml</file>
-        <file>uicomponent/qml/LedButtons.qml</file>
-        <file>uicomponent/qml/main.qml</file>
-    </qresource>
-</RCC>
