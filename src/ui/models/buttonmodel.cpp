@@ -55,7 +55,7 @@ QVariant ButtonModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void ButtonModel::resetDatas()
+void ButtonModel::onResetDataModel()
 {
     initalizeButtonModel();
 }

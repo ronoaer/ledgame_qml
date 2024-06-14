@@ -2,11 +2,8 @@
 #define LEDGAMECONTROLLER_H
 
 #include <QObject>
-#include <QSharedPointer>
 #include <QColor>
 
-class LedModel;
-class ButtonModel;
 class ColorController;
 class KeyController;
 class KeyGenInterface;
@@ -15,9 +12,7 @@ class LedGameController : public QObject
 {
     Q_OBJECT
 public:
-    explicit LedGameController(QSharedPointer<LedModel>& led_model,
-                               QSharedPointer<ButtonModel>& button_model,
-                               KeyGenInterface* key_gen_interface,
+    explicit LedGameController(KeyGenInterface* key_gen_interface,
                                QObject *parent = nullptr);
     ~LedGameController();
 
@@ -26,12 +21,11 @@ public slots:
     void onButtonClicked(const QString& key);
 
 signals:
+    void updateLed3Color(const QColor& colo);
+    void resetDataModel();
 
 private:
     void resetContext();
-
-    QSharedPointer<LedModel> led_model_;
-    QSharedPointer<ButtonModel> button_model_;
 
     ColorController* color_controller_;
     KeyController* key_controller_;

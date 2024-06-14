@@ -31,7 +31,8 @@ public:
     void resetDatas();
 
 public slots:
-    void updateLed3Color(const QColor& color);
+    void onUpdateLed3Color(const QColor& color);
+    void onResetDataModel();
 
 protected:
     QHash<int, QByteArray> roleNames() const override;

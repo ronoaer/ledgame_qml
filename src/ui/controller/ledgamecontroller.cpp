@@ -2,20 +2,16 @@
 
 #include <QRandomGenerator>
 
-#include "../models/buttonmodel.h"
-#include "../models/ledmodel.h"
 #include "colorcontroller.h"
 #include "keycontroller.h"
 
-LedGameController::LedGameController(QSharedPointer<LedModel>& led_model,
-                                     QSharedPointer<ButtonModel>& button_model,
-                                     KeyGenInterface* key_gen_interface,
+const int initial_position = 0;
+
+LedGameController::LedGameController(KeyGenInterface* key_gen_interface,
                                      QObject *parent)
-    : QObject{parent},
-    led_model_(led_model),
-    button_model_(button_model)
+    : QObject{parent}
 {
-    press_index_ = 0;
+    press_index_ = initial_position;
     right_color_ = Qt::green;
     always_right_ = true;
 
@@ -30,8 +26,7 @@ LedGameController::~LedGameController()
 
 void LedGameController::resetModel()
 {
-    led_model_->resetDatas();
-    button_model_->resetDatas();
+    emit resetDataModel();
 }
 
 void LedGameController::onButtonClicked(const QString& key)
@@ -40,7 +35,7 @@ void LedGameController::onButtonClicked(const QString& key)
     QColor color = color_controller_->mapToColor(press_index_, key_index);
     ++ press_index_;
 
-    led_model_->updateLed3Color(color);
+    emit updateLed3Color(color);
 
     always_right_ = (right_color_ == color) && always_right_;
     resetContext();
@@ -52,15 +47,15 @@ void LedGameController::resetContext()
         return;
     }
 
-    press_index_ = 0;
+    press_index_ = initial_position;
 
     if (!always_right_) {
         always_right_ = true;
         return;
     }
 
-    // resetContext;
     key_controller_->resetKey();
     always_right_ = true;
-    resetModel();
+
+    emit resetDataModel();
 }

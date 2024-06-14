@@ -57,10 +57,16 @@ void LedGameApplication::initControllers()
     KeyGenInterface* key_generator =
         new KeyGenerator(str_initialize_keys);
 
-    controller_.reset(new LedGameController(led_model_,
-                                            button_model_,
-                                            key_generator,
+    controller_.reset(new LedGameController(key_generator,
                                             this));
     engine_->rootContext()->setContextProperty("LGController", controller_.get());
+
+    connect(controller_.data(), &LedGameController::updateLed3Color,
+            led_model_.data(), &LedModel::onUpdateLed3Color);
+
+    connect(controller_.data(), &LedGameController::resetDataModel,
+            led_model_.data(), &LedModel::onResetDataModel);
+    connect(controller_.data(), &LedGameController::resetDataModel,
+            button_model_.data(), &ButtonModel::onResetDataModel);
 }
 

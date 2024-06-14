@@ -53,7 +53,7 @@ QVariant LedModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void LedModel::updateLed3Color(const QColor& color)
+void LedModel::onUpdateLed3Color(const QColor& color)
 {
     colors_.dequeue();
     colors_.enqueue(color);
@@ -65,7 +65,7 @@ void LedModel::updateLed3Color(const QColor& color)
     Q_EMIT dataChanged(index(0), index(rowCount({}) - 1, 0));
 }
 
-void LedModel::resetDatas()
+void LedModel::onResetDataModel()
 {
     initilizeLedModel();
 }
