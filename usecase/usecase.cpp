@@ -7,9 +7,7 @@
 #include <QDebug>
 
 Usecase::Usecase(Keys* keys,
-                               const QColor reset_color_flag) :
-
-
+                 const QColor reset_color_flag) :
     keys_(keys),
     reset_color_flag_(reset_color_flag) {
 
@@ -21,9 +19,9 @@ Usecase::~Usecase() {
 }
 
 QColor Usecase::GetColorByKey(const QString &key) {
-    KeyPosition kp = keys_->KeyIndex(key, press_numbers_);
+    Keys::KeyPosition kp = keys_->keyIndex(key, press_numbers_);
 
-    QColor color = getColorByPosition(kp);
+    QColor color = mapPositionToColor(kp);
 
     updateResetCondition(color);
 
@@ -32,15 +30,19 @@ QColor Usecase::GetColorByKey(const QString &key) {
 
 void Usecase::ResetContext() {
     if (canBeReset()) {
-        keys_->ReRandomKeySequence();
+        keys_->reRandomKeySequence();
         resetRound();
     }
 }
 
-QColor Usecase::mapPositionToColor(const KeyPosition &kp)
+QColor Usecase::mapPositionToColor(const Keys::KeyPosition &kp)
 {
     QColor color(Qt::red);
-    if (kp == KeyPosition::)
+    // if (kp == 0) {
+    //     return
+    // }
+
+    return color;
 }
 
 void Usecase::updateResetCondition(const QColor &curColor)

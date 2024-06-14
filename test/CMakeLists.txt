@@ -16,12 +16,9 @@ set(TEST_SRC ${TEST_SRC}
     ui/ledgameui_test.cpp
     key/keysequence_test.cpp
     key/colorrule_test.cpp
-<<<<<<< HEAD
     usecase/usecase_test.cpp
-=======
     usecase/ledgame_test.cpp
     usecase/ledgameusecase_test.cpp
->>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
     usecase/generatorinterface_test.cpp
 )
 

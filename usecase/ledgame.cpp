@@ -39,7 +39,7 @@ bool LedGame::constructor() {
     GeneratorInterface* key_generator =
         new KeySequenceGenerator(str_initialize_keys);
 
-    KeySequence* key_sequence = new KeySequence(key_generator);
+    Keys* key_sequence = new Keys(key_generator);
     usecase_ = new LedGameUsecase(key_sequence, Qt::green);
 
     ui_->set_usecase(usecase_);

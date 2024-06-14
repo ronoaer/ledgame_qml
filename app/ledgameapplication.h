@@ -4,7 +4,7 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 
-class USInterface;
+class LedGameUsecase;
 class LedGameUI;
 
 class LedGameApplication : public QApplication
@@ -19,10 +19,10 @@ private:
     int initUsecase();
     void initUi();
 
- //   QQmlApplicationEngine *engine_ {};
+    QQmlApplicationEngine *engine_ {};
 
-    /*QSharedPointer<*/USInterface* usecase_;
-    /*QSharedPointer<*/LedGameUI* ui_;
+    QSharedPointer<LedGameUsecase> usecase_;
+    QSharedPointer<LedGameUI> ui_;
 };
 
 #endif // LEDGAMEAPPLICATION_H

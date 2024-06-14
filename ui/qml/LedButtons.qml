@@ -8,27 +8,11 @@ Item {
     width: 300
     height: 40
 
-<<<<<<< HEAD
-=======
-    ListModel {
-        id: ledsModel
-    }
-
->>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
     GridView {
         id: buttons
         anchors.fill: parent
         cellWidth: parent.width / 3
-<<<<<<< HEAD
-        model: ButtonModel
 
-        delegate: LedButtonType {
-            id: button
-            width: 40
-            height: 40
-            title: buttonTexta
-            buttonIndex: buttonIndexa
-=======
         model: ledsModel
 
         delegate: Button {
@@ -36,7 +20,6 @@ Item {
             width: 40
             height: 40
             text: title
->>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
 
             background: Rectangle {
                 border.color: button.hovered ? "#17a81a" : "#aba9b2"
@@ -45,11 +28,6 @@ Item {
                 opacity: enabled ? 1 : 0.3
                 color: "#dcdcdc"
             }
-<<<<<<< HEAD
-        }
-    }
-=======
-
 
             onClicked: {
                 LedGameUI.onButtonClicked(title);
@@ -75,5 +53,4 @@ Item {
     function updateText(index, key) {
        ledsModel.get(index).title = key;
     }
->>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
 }

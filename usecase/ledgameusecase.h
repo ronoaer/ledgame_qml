@@ -7,12 +7,12 @@
 #include "../usecase/ledgameinterface.h"
 
 class StepInterface;
-class KeySequence;
+class Keys;
 
 
 class LedGameUsecase : public LedGameInterface {
  public:
-    explicit LedGameUsecase(KeySequence* key_sequence, QColor reset_color_flag);
+    explicit LedGameUsecase(Keys* keys, QColor reset_color_flag);
      virtual ~LedGameUsecase();
 
     virtual QColor Presskey(const QString& key, const int press_index);
@@ -20,7 +20,7 @@ class LedGameUsecase : public LedGameInterface {
     virtual void ResetContext();
 
  private:
-    KeySequence* key_sequence_;
+    Keys* keys_;
     QColor reset_color_flag_;
     bool can_be_reset_;
 };

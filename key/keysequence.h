@@ -22,14 +22,14 @@ class Keys {
     explicit Keys(GeneratorInterface* generator);
     virtual ~Keys();
 
-    QColor KeyMapColor(const QString& key, const int press_index) const;
+    QColor keyMapColor(const QString& key, const int press_index) const;
 
-    KeyPosition KeyIndex(const QString& key, const int press_number);
+    KeyPosition keyIndex(const QString& key, const int press_number);
 
-    void ReRandomKeySequence();
+    void reRandomKeySequence();
 
  private:
-    bool InvalidKeyOrIndex(const QString& key, const int press_index) const;
+    bool invalidKeyOrIndex(const QString& key, const int press_index) const;
 
     GeneratorInterface* generator_;
 

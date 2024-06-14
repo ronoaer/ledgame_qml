@@ -33,13 +33,13 @@ int LedGameApplication::initUsecase()
     GeneratorInterface* key_generator =
         new KeySequenceGenerator(str_initialize_keys);
 
-    KeySequence* key_sequence = new KeySequence(key_generator);
-    usecase_ = new Usecase(key_sequence, Qt::green);
+    Keys* key_sequence = new Keys(key_generator);
+//    usecase_.reset(new LedGameUsecase(key_sequence, Qt::green));
 
     return 0;
 }
 
 void LedGameApplication::initUi()
 {
-    ui_ = new LedGameUI(usecase_, this);
+//    ui_.reset(new LedGameUI(usecase_, this));
 }

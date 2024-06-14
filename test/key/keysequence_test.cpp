@@ -2,11 +2,7 @@
 // Author: LH
 // this is ...
 #include <generatorinterface.h>
-<<<<<<< HEAD
 #include <keys.h>
-=======
-#include <keysequence.h>
->>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
 
 #include <gtest/gtest.h>
 
@@ -20,17 +16,17 @@ class MockGenerator : public GeneratorInterface {
 
     TEST(CharSequence, IndexOf) {
         GeneratorInterface* generator = new MockGenerator();
-        KeySequence *seq = new KeySequence(generator);
-        EXPECT_EQ(seq->KeyMapColor("",  0), Qt::red);
-        EXPECT_EQ(seq->KeyMapColor("A", 0), Qt::green);
-        EXPECT_EQ(seq->KeyMapColor("B", 1), Qt::green);
-        EXPECT_EQ(seq->KeyMapColor("C", 2), Qt::red);
-        EXPECT_EQ(seq->KeyMapColor("A", 1), Qt::yellow);
+        Keys *seq = new Keys(generator);
+        EXPECT_EQ(seq->keyMapColor("",  0), Qt::red);
+        EXPECT_EQ(seq->keyMapColor("A", 0), Qt::green);
+        EXPECT_EQ(seq->keyMapColor("B", 1), Qt::green);
+        EXPECT_EQ(seq->keyMapColor("C", 2), Qt::red);
+        EXPECT_EQ(seq->keyMapColor("A", 1), Qt::yellow);
 
         // invalid key || press_index
-        EXPECT_EQ(seq->KeyMapColor("",  0), Qt::red);
-        EXPECT_EQ(seq->KeyMapColor("A", -1), Qt::red);
-        EXPECT_EQ(seq->KeyMapColor("A", 4), Qt::red);
+        EXPECT_EQ(seq->keyMapColor("",  0), Qt::red);
+        EXPECT_EQ(seq->keyMapColor("A", -1), Qt::red);
+        EXPECT_EQ(seq->keyMapColor("A", 4), Qt::red);
 
         delete seq;
     }

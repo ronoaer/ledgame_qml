@@ -2,22 +2,22 @@
 // Author: LH
 // this is ...
 #include "ledgameusecase.h"
-#include "../key/keysequence.h"
+#include "../key/keys.h"
 
 #include <QDebug>
 
-LedGameUsecase::LedGameUsecase(KeySequence* key_sequence,
+LedGameUsecase::LedGameUsecase(Keys* key_sequence,
                                const QColor reset_color_flag) :
 
 
-    key_sequence_(key_sequence),
+    keys_(key_sequence),
     reset_color_flag_(reset_color_flag) {
 
     can_be_reset_ = true;
 }
 
 LedGameUsecase::~LedGameUsecase() {
-    delete key_sequence_;
+    delete keys_;
 }
 
 QColor LedGameUsecase::Presskey(const QString &key, const int press_index) {
@@ -25,7 +25,7 @@ QColor LedGameUsecase::Presskey(const QString &key, const int press_index) {
         can_be_reset_ = true;
     }
 
-    QColor color = key_sequence_->KeyMapColor(key, press_index);
+    QColor color = keys_->keyMapColor(key, press_index);
 
 
     can_be_reset_ = (reset_color_flag_ == color) && can_be_reset_;
@@ -38,5 +38,5 @@ bool LedGameUsecase::CanResetContext() {
 }
 
 void LedGameUsecase::ResetContext() {
-    key_sequence_->ReRandomKeySequence();
+    keys_->reRandomKeySequence();
 }

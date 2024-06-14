@@ -5,10 +5,9 @@
 #define LEDGAME_USECASE_LEDGAMEUSECASE_H
 
 #include "usinterface.h"
+#include "../key/keys.h"
 
 class StepInterface;
-class Keys;
-class KeyPosition;
 
 
 class Usecase : public USInterface {
@@ -20,7 +19,7 @@ class Usecase : public USInterface {
     virtual void ResetContext() override;
 
  private:
-    QColor mapPositionToColor(const KeyPosition& kp);
+    QColor mapPositionToColor(const Keys::KeyPosition& kp);
     void updateResetCondition(const QColor& curColor);
     bool canBeReset();
     bool roundEnd();

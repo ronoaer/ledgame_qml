@@ -7,7 +7,7 @@
 
 Keys::Keys(GeneratorInterface* generator) :
     generator_(generator) {
-    ReRandomKeySequence();
+    reRandomKeySequence();
 
     yellow_rule_ = new YellowRule(NULL);
     green_rule_ = new GreenRule(yellow_rule_);
@@ -22,9 +22,9 @@ Keys::~Keys() {
     delete red_rule_;
 }
 
-QColor Keys::KeyMapColor(const QString &key,
+QColor Keys::keyMapColor(const QString &key,
                                 const int press_index) const {
-    if (InvalidKeyOrIndex(key, press_index)) {
+    if (invalidKeyOrIndex(key, press_index)) {
         return Qt::red;
     }
 
@@ -45,7 +45,7 @@ QColor Keys::KeyMapColor(const QString &key,
     return color;
 }
 
-KeyPosition Keys::KeyIndex(const QString &key, const int press_number)
+Keys::KeyPosition Keys::keyIndex(const QString &key, const int press_number)
 {
     KeyPosition kp = KeyPosition::NoKey;
 
@@ -61,11 +61,11 @@ KeyPosition Keys::KeyIndex(const QString &key, const int press_number)
     return kp;
 }
 
-void Keys::ReRandomKeySequence() {
+void Keys::reRandomKeySequence() {
     key_sequence_ = generator_->GenerateKeySequence();
 }
 
-bool Keys::InvalidKeyOrIndex(const QString &key,
+bool Keys::invalidKeyOrIndex(const QString &key,
                                     const int press_index) const {
     if ((key.length() != 1) || (press_index < 0) ||
         (press_index >= key_sequence_.length())) {

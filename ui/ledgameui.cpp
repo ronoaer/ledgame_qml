@@ -2,8 +2,6 @@
 // Author: LH
 // this is ...
 #include "ledgameui.h"
-
-<<<<<<< HEAD
 #include "../usecase/usinterface.h"
 
 #include <QQmlApplicationEngine>
@@ -15,21 +13,6 @@
 
 #include <QDebug>
 
-const int LedCount = 3;
-
-
-LedGameUI::LedGameUI(USInterface *usecase, QObject *parent) :
-    usecase_(usecase), QObject(parent)
-{
-    initEngine();
-    initModels();
-}
-
-LedGameUI::~LedGameUI() {
-    if (engine_) {
-        QObject::disconnect(engine_, 0, 0, 0);
-        delete engine_;
-=======
 #include "../usecase/ledgameinterface.h"
 
 #include <QRandomGenerator>
@@ -104,18 +87,7 @@ void LedGameUI::ResetButtonsText() {
 
         seed++;
         seed = seed % count;
->>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
     }
-}
-
-
-<<<<<<< HEAD
-void LedGameUI::onButtonClicked(QString key)
-{
-    QColor newest_color = usecase_->GetColorByKey(key);
-
-    Q_EMIT updateLastLedColor(newest_color);
-    usecase_->ResetContext();
 }
 
 void LedGameUI::initEngine()
@@ -146,7 +118,8 @@ void LedGameUI::initModels()
 
     ledModel_.reset(new LedModel(this));
     engine_->rootContext()->setContextProperty("LedModel", ledModel_.get());
-=======
+}
+
 QString LedGameUI::IndexToText(const int index) {
     switch (index) {
     case 0:
@@ -160,5 +133,4 @@ QString LedGameUI::IndexToText(const int index) {
     }
 
     return "A";
->>>>>>> 7a335deed4432e3144ee132e3521665119e2a06a
 }

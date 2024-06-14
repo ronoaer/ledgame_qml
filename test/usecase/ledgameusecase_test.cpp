@@ -23,7 +23,7 @@ public:
 
 TEST(StepController, Trigger) {
     GeneratorInterface* generator = new MockGenerator();
-    KeySequence *seq = new KeySequence(generator);
+    Keys *seq = new Keys(generator);
     LedGameUsecase* contoller = new LedGameUsecase(seq, Qt::green);
 
     int press_index = 0;

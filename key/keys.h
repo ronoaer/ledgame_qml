@@ -4,6 +4,7 @@
 #ifndef KEYSEQUENCE_KEYSEQUENCE_H_
 #define KEYSEQUENCE_KEYSEQUENCE_H_
 
+#include <QObject>
 #include <QString>
 #include <QColor>
 
@@ -11,25 +12,28 @@ class GeneratorInterface;
 class LedStrategyInterface;
 class ColorRule;
 
-enum class KeyPosition {
-    NoKey,
-    Wrong,
-    Right
-};
 
-class Keys {
+class Keys : public QObject {
+    Q_OBJECT
  public:
+    enum KeyPosition {
+        NoKey,
+        Wrong,
+        Right
+    };
+    Q_ENUM(KeyPosition)
+
     explicit Keys(GeneratorInterface* generator);
     virtual ~Keys();
 
-    QColor KeyMapColor(const QString& key, const int press_index) const;
+    QColor keyMapColor(const QString& key, const int press_index) const;
 
-    KeyPosition KeyIndex(const QString& key, const int press_number);
+    KeyPosition keyIndex(const QString& key, const int press_number);
 
-    void ReRandomKeySequence();
+    void reRandomKeySequence();
 
  private:
-    bool InvalidKeyOrIndex(const QString& key, const int press_index) const;
+    bool invalidKeyOrIndex(const QString& key, const int press_index) const;
 
     GeneratorInterface* generator_;
 
