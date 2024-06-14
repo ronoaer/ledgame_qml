@@ -1,25 +1,32 @@
 project(LedGameTest LANGUAGES CXX)
 
-include_directories(../ui)
-include_directories(../key)
-include_directories(../usecase)
-
-find_package(Qt6 COMPONENTS Test REQUIRED)
-
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+include_directories(../src/ui/controller)
+
+set(PACKAGES
+    Core Gui Test
+)
+
+find_package(Qt6 REQUIRED COMPONENTS ${PACKAGES})
+qt_standard_project_setup()
+set(LIBS ${LIBS}
+    Qt::Core Qt::Gui Qt6::Test
+)
+
 set(TEST_SRC ${TEST_SRC}
     main.cpp
-    ui/ledgameui_test.cpp
-    key/keysequence_test.cpp
-    key/colorrule_test.cpp
-    usecase/usecase_test.cpp
-    usecase/ledgame_test.cpp
-    usecase/ledgameusecase_test.cpp
-    usecase/generatorinterface_test.cpp
+    ../src/ui/controller/keygenerator.h
+    ../src/ui/controller/keygenerator.cpp
+    ../src/ui/controller/keycontroller.h
+    ../src/ui/controller/keycontroller.cpp
+    ../src/ui/controller/colorcontroller.h
+    ../src/ui/controller/colorcontroller.cpp
+    ./ui/keycontroller_test.cpp
+    ./ui/colorcontroller_test.cpp
 )
 
 add_executable(LedGameTest
@@ -30,7 +37,7 @@ set (gtest_disable_ptheads on)
 add_subdirectory(googletest-main)
 config_compiler_and_linker()
 
-target_link_libraries(LedGameTest PRIVATE gtest gmock ui usecase key Qt::Gui Qt::Core Qt6::Test)
+target_link_libraries(LedGameTest PRIVATE gtest gmock  ${LIBS})
 
 add_test(NAME LedGameTest
-         COMMAND LedGameTest)
+        COMMAND LedGameTest)

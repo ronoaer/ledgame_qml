@@ -23,8 +23,7 @@ set(LIBS ${LIBS}
     Qt6::Quick  Qt6::QuickControls2
 )
 
+add_subdirectory(src)
+add_subdirectory(test)
 
 enable_testing()
-
-add_subdirectory(src)
-#add_subdirectory(test)

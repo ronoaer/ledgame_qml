@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>ui/qml/LedButtons.qml</file>
-        <file>ui/qml/LedButtonType.qml</file>
-        <file>ui/qml/LedIndicator.qml</file>
         <file>ui/qml/LedLabels.qml</file>
         <file>ui/qml/LedLightType.qml</file>
         <file>ui/qml/main.qml</file>

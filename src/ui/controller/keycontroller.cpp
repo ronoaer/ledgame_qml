@@ -11,6 +11,10 @@ KeyController::KeyController(KeyGenInterface* interface,
 
 int KeyController::keyIndex(const QString& key, const int press_index)
 {
+    if (key.isEmpty()) {
+        return -1;
+    }
+
     int key_index = keys_.indexOf(key);
 
     if (key_index >= 0) {

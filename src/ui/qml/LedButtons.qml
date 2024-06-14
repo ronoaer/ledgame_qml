@@ -19,19 +19,17 @@ Item {
             id: button
             width: 40
             height: 40
-            text: model.ButtonText
+
+            Text {
+                id: buttonTextId
+                anchors.centerIn: parent
+                text: model.ButtonText
+                color: "black"
+            }
 
             onClicked: {
-                LGController.onButtonClicked(text);
+                LGController.onButtonClicked(buttonTextId.text);
             }
         }
-    }
-
-    Component.onCompleted: {
-        LGController.resetModel()
-    }
-
-    function updateText(index, key) {
-       LedModel.get(index).title = key;
     }
 }

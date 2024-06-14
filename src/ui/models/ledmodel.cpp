@@ -85,9 +85,9 @@ void LedModel::initilizeLedModel()
     leds_.clear();
     colors_.clear();
 
-    initLedDatas("Led 1", Qt::red);
-    initLedDatas("Led 2", Qt::green);
-    initLedDatas("Led 3", Qt::yellow);
+    initLedDatas("1", Qt::red);
+    initLedDatas("2", Qt::green);
+    initLedDatas("3", Qt::yellow);
 
     endResetModel();
 }

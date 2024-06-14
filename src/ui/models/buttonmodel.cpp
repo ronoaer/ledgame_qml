@@ -57,7 +57,7 @@ QVariant ButtonModel::data(const QModelIndex &index, int role) const
 
 void ButtonModel::onResetDataModel()
 {
-    initalizeButtonModel();
+//    initalizeButtonModel();
 }
 
 QHash<int, QByteArray> ButtonModel::roleNames() const

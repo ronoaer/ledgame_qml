@@ -4,8 +4,12 @@
 
 #include "ledgameapplication.h"
 
+//#include <gtest/gtest.h>
+
 int main(int argc, char *argv[]) {
     LedGameApplication app(argc, argv);
+
+//    ::testing::InitGoogleTest(&argc, argv);
 
     app.init();
 
