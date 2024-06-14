@@ -5,6 +5,8 @@ set(UI_SRC
     models/ledmodel.cpp
     models/buttonmodel.h
     models/buttonmodel.cpp
+    controller/ledgamecontroller.h
+    controller/ledgamecontroller.cpp
 )
 
 add_library(ui

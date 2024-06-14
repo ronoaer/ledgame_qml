@@ -11,14 +11,6 @@ Window {
     minimumHeight: 100
     minimumWidth: 150
 
-    Connections {
-        target: LedModel    // EDIT: I drew the wrong conclusions here, see text below!
-
-        function onDataChanged(index, index) {
-            console.log("DataChanged received----------------xxx-")
-        }
-    }
-
     ColumnLayout {
         anchors.centerIn: parent
 

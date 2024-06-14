@@ -25,7 +25,9 @@ bool LedModel::setData(const QModelIndex &index, const QVariant &value, int role
 
     case LedColorRole: {
         leds_[index.row()].color_ = value.toInt();
+        break;
     }
+
     default: {
         qDebug() << "defualt" <<Qt::endl;
         return true;
@@ -71,19 +73,23 @@ void LedModel::resetDatas()
 QHash<int, QByteArray> LedModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[LedNameRole] = "ledNamea";
-    roles[LedColorRole] = "ledColora";
+    roles[LedNameRole] = "LedName";
+    roles[LedColorRole] = "LedColor";
     return roles;
 }
 
 void LedModel::initilizeLedModel()
 {
+    beginResetModel();
+
     leds_.clear();
     colors_.clear();
 
     initLedDatas("Led 1", Qt::red);
     initLedDatas("Led 2", Qt::green);
     initLedDatas("Led 3", Qt::yellow);
+
+    endResetModel();
 }
 
 void LedModel::initLedDatas(const QString &name, const QColor &color)

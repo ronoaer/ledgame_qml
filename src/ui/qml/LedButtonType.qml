@@ -23,28 +23,28 @@ Button {
 
     text: title
 
-    background: Rectangle {
-        id: backgroundx
-        anchors.fill: parent
-        radius: 16
-        color: {
-            if (root.pressed) {
-                return pressedColor
-            }
+    // background: Rectangle {
+    //     id: backgroundx
+    //     anchors.fill: parent
+    //     radius: 16
+    //     color: {
+    //         if (root.pressed) {
+    //             return pressedColor
+    //         }
 
-            return root.hovered ? hoveredColor : defaultColor
-        }
-        border.color: borderColor
-        border.width: borderWidth
+    //         return root.hovered ? hoveredColor : defaultColor
+    //     }
+    //     border.color: borderColor
+    //     border.width: borderWidth
 
-        Behavior on color {
-            PropertyAnimation { duration: 200 }
-        }
-    }
+    //     Behavior on color {
+    //         PropertyAnimation { duration: 200 }
+    //     }
+    // }
 
-    onClicked: {
-        LedGameUI.onButtonClicked(title);
-    }
+    // onClicked: {
+    //     LedGameUI.onButtonClicked(title);
+    // }
 
     MouseArea {
         anchors.fill: background

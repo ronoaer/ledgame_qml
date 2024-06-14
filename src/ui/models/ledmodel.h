@@ -14,6 +14,8 @@ struct LedModelData {
 class LedModel : public QAbstractListModel
 {
     Q_OBJECT
+    // Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged FINAL)
+    // Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged FINAL)
 public:
     LedModel(QObject *parent = nullptr);
 

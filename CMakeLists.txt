@@ -26,14 +26,8 @@ set(LIBS ${LIBS}
     Qt6::Core5Compat Qt6::Concurrent
 )
 
-set(QRC
-    ui.qrc
-)
 
 enable_testing()
 
-add_subdirectory(app)
-add_subdirectory(ui)
-add_subdirectory(usecase)
-add_subdirectory(key)
+add_subdirectory(src)
 #add_subdirectory(test)

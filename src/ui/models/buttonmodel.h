@@ -4,7 +4,7 @@
 #include <QAbstractListModel>
 
 struct ButtonModelData {
-    QString button_character_;
+    QString button_text_;
     int button_index_;
 };
 
@@ -15,13 +15,15 @@ public:
     ButtonModel(QObject* parent = nullptr);
 
     enum Roles {
-        ButtonCharacter = Qt::UserRole + 1,
-        ButtonIndex
+        ButtonTextRole = Qt::UserRole + 1,
+        ButtonIndexRole
     };
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+    void resetDatas();
 
 protected:
     QHash<int, QByteArray> roleNames() const override;

@@ -18,14 +18,16 @@ bool ButtonModel::setData(const QModelIndex &index, const QVariant &value, int r
     }
 
     switch (role) {
-    case ButtonCharacter: {
-        buttons_[index.row()].button_character_ = value.toString();
+    case ButtonTextRole: {
+        buttons_[index.row()].button_text_ = value.toString();
         break;
     }
 
-    case ButtonIndex: {
+    case ButtonIndexRole: {
         buttons_[index.row()].button_index_ = value.toInt();
+        break;
     }
+
     default: {
         return true;
     }
@@ -43,32 +45,46 @@ QVariant ButtonModel::data(const QModelIndex &index, int role) const
     }
 
     switch (role) {
-    case ButtonCharacter: return buttons_[index.row()].button_character_;
-    case ButtonIndex: return buttons_[index.row()].button_index_;
+    case ButtonTextRole:
+        return buttons_[index.row()].button_text_;
+
+    case ButtonIndexRole:
+        return buttons_[index.row()].button_index_;
     }
 
     return QVariant();
 }
 
+void ButtonModel::resetDatas()
+{
+    initalizeButtonModel();
+}
+
 QHash<int, QByteArray> ButtonModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[ButtonCharacter] = "buttonTexta";
-    roles[ButtonIndex] = "buttonIndexa";
+    roles[ButtonTextRole] = "ButtonText";
+    roles[ButtonIndexRole] = "ButtonIndex";
     return roles;
 }
 
 void ButtonModel::initalizeButtonModel()
 {
+    beginResetModel();
+
+    buttons_.clear();
+
     initButtonDatas("A", 0);
     initButtonDatas("B", 1);
     initButtonDatas("C", 2);
+
+    endResetModel();
 }
 
 void ButtonModel::initButtonDatas(const QString &charater, const int index)
 {
     ButtonModelData data;
-    data.button_character_ = charater;
+    data.button_text_ = charater;
     data.button_index_ = index;
 
     buttons_.append(data);

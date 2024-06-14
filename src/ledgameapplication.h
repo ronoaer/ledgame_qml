@@ -4,8 +4,9 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 
-class LedGameUsecase;
-class LedGameUI;
+class LedModel;
+class ButtonModel;
+class LedGameController;
 
 class LedGameApplication : public QApplication
 {
@@ -16,13 +17,14 @@ public:
     void init();
 
 private:
-    int initUsecase();
-    void initUi();
+    void initModels();
+    void initControllers();
 
     QQmlApplicationEngine *engine_ {};
 
-    QSharedPointer<LedGameUsecase> usecase_;
-    QSharedPointer<LedGameUI> ui_;
+    QSharedPointer<LedModel> led_model_;
+    QSharedPointer<ButtonModel> button_model_;
+    QSharedPointer<LedGameController> controller_;
 };
 
 #endif // LEDGAMEAPPLICATION_H
