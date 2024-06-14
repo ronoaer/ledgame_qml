@@ -3,9 +3,13 @@
 
 #include <QObject>
 #include <QSharedPointer>
+#include <QColor>
 
 class LedModel;
 class ButtonModel;
+class ColorController;
+class KeyController;
+class KeyGenInterface;
 
 class LedGameController : public QObject
 {
@@ -13,23 +17,31 @@ class LedGameController : public QObject
 public:
     explicit LedGameController(QSharedPointer<LedModel>& led_model,
                                QSharedPointer<ButtonModel>& button_model,
+                               KeyGenInterface* key_gen_interface,
                                QObject *parent = nullptr);
     ~LedGameController();
 
 public slots:
     void resetModel();
-    void onButtonClicked(QString key);
+    void onButtonClicked(const QString& key);
 
 signals:
 
 private:
-    void resetContext(int* press_index, const int max_count);
-    void resetButtonsText();
+    void resetContext();
 
     QSharedPointer<LedModel> led_model_;
     QSharedPointer<ButtonModel> button_model_;
 
-    int num_press_index_;
+    ColorController* color_controller_;
+    KeyController* key_controller_;
+
+    int press_index_;
+
+    QStringList keys_;
+
+    bool always_right_;
+    QColor right_color_;
 };
 
 #endif // LEDGAMECONTROLLER_H

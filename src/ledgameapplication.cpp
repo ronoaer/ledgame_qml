@@ -2,13 +2,10 @@
 
 #include <QQmlContext>
 
-#include "ui/ledgameui.h"
-#include "key/keys.h"
-#include "key/generatorinterface.h"
 #include "ui/models/buttonmodel.h"
 #include "ui/models/ledmodel.h"
 #include "ui/controller/ledgamecontroller.h"
-
+#include "ui/controller/keygenerator.h"
 
 LedGameApplication::LedGameApplication(int &argc, char *argv[]) : QApplication(argc, argv)
 {
@@ -55,16 +52,14 @@ void LedGameApplication::initModels()
 
 void LedGameApplication::initControllers()
 {
-    // QString str_initialize_keys("ABC");
+    QString str_initialize_keys("ABC");
 
-    // // initialize key sequence
-    // GeneratorInterface* key_generator =
-    //     new KeySequenceGenerator(str_initialize_keys);
-
-    // Keys* key_sequence = new Keys(key_generator);
+    KeyGenInterface* key_generator =
+        new KeyGenerator(str_initialize_keys);
 
     controller_.reset(new LedGameController(led_model_,
                                             button_model_,
+                                            key_generator,
                                             this));
     engine_->rootContext()->setContextProperty("LGController", controller_.get());
 }

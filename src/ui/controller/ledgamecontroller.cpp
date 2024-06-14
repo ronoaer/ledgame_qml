@@ -4,14 +4,24 @@
 
 #include "../models/buttonmodel.h"
 #include "../models/ledmodel.h"
+#include "colorcontroller.h"
+#include "keycontroller.h"
 
 LedGameController::LedGameController(QSharedPointer<LedModel>& led_model,
                                      QSharedPointer<ButtonModel>& button_model,
+                                     KeyGenInterface* key_gen_interface,
                                      QObject *parent)
     : QObject{parent},
     led_model_(led_model),
     button_model_(button_model)
-{}
+{
+    press_index_ = 0;
+    right_color_ = Qt::green;
+    always_right_ = true;
+
+    color_controller_ = new ColorController(this);
+    key_controller_ = new KeyController(key_gen_interface, this);
+}
 
 LedGameController::~LedGameController()
 {
@@ -24,48 +34,33 @@ void LedGameController::resetModel()
     button_model_->resetDatas();
 }
 
-void LedGameController::onButtonClicked(QString key)
+void LedGameController::onButtonClicked(const QString& key)
 {
-    // QColor newest_color = usecase_->Presskey(key, num_press_index_);
-    // num_press_index_++;
+    int key_index = key_controller_->keyIndex(key, press_index_);
+    QColor color = color_controller_->mapToColor(press_index_, key_index);
+    ++ press_index_;
 
-    // QString str_color = newest_color.name();
+    led_model_->updateLed3Color(color);
 
-    // Q_EMIT updateLedsColor(num_press_index_, str_color);
-
-    // ResetContext(&num_press_index_, LedCount);
+    always_right_ = (right_color_ == color) && always_right_;
+    resetContext();
 }
 
-void LedGameController::resetContext(int *press_index, const int max_count)
+void LedGameController::resetContext()
 {
-    if (*press_index < max_count) {
+    if (press_index_ < key_controller_->keyLength()) {
         return;
     }
 
-    *press_index = 0;
+    press_index_ = 0;
 
-    // if (!usecase_->CanResetContext()) {
-    //     return;
-    // }
+    if (!always_right_) {
+        always_right_ = true;
+        return;
+    }
 
-    // // update UI.....
-    // ResetButtonsText();
-
-    // // update usecase....
-    // usecase_->ResetContext();
-}
-
-void LedGameController::resetButtonsText()
-{
-    // int count = LedCount;
-    // int seed = QRandomGenerator::global()->bounded(count);
-
-    // for (int i = 0; i < count; i++) {
-    //     QString key = IndexToText(seed);
-
-    //     Q_EMIT UpdateButtonText(i, key);
-
-    //     seed++;
-    //     seed = seed % count;
-    // }
+    // resetContext;
+    key_controller_->resetKey();
+    always_right_ = true;
+    resetModel();
 }

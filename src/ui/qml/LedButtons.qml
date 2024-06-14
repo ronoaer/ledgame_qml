@@ -22,7 +22,7 @@ Item {
             text: model.ButtonText
 
             onClicked: {
-                LGController.onButtonClicked(title);
+                LGController.onButtonClicked(text);
             }
         }
     }

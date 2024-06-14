@@ -1,12 +1,16 @@
 set(UI_SRC
-    ledgameui.h
-    ledgameui.cpp
     models/ledmodel.h
     models/ledmodel.cpp
     models/buttonmodel.h
     models/buttonmodel.cpp
     controller/ledgamecontroller.h
     controller/ledgamecontroller.cpp
+    controller/colorcontroller.h
+    controller/colorcontroller.cpp
+    controller/keycontroller.h
+    controller/keycontroller.cpp
+    controller/keygenerator.h
+    controller/keygenerator.cpp
 )
 
 add_library(ui
